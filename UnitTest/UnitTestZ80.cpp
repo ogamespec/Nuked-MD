@@ -1,18 +1,21 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
+extern "C"
+{
+	#include "../z80.h"
+	// Not exported
+	void Z80_Clock(z80_t* chip, int clk);
+}
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest
 {
-	TEST_CLASS(UnitTest)
+	TEST_CLASS(UnitTestZ80)
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
-		{
-		}
-
 		/// <summary>
 		/// Execute 1 million Z80 cycles and see what it does not crash and how long it takes to execute.
 		/// </summary>

@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="UnitTest.cpp">
+    <ClCompile Include="UnitTestZ80.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
@@ -35,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="..\z80.c">
       <Filter>Nuked-MD Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTest68K.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

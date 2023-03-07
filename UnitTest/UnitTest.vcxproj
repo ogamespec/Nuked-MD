@@ -188,7 +188,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UnitTest.cpp" />
+    <ClCompile Include="UnitTest68K.cpp" />
+    <ClCompile Include="UnitTestZ80.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\68k.h" />
