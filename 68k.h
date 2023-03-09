@@ -12,18 +12,21 @@ typedef struct {
 } busstate_t;
 
 typedef struct {
-    int o_e;
     int i_vpa;
     int i_br;
     int i_bgack;
-    int o_bg;
     int i_reset;
     int i_halt;
-    int o_reset;
-    int o_halt;
     int i_ipl0;
     int i_ipl1;
     int i_ipl2;
+    int i_dtack;
+    int i_berr;
+    int i_data;
+    int o_e;
+    int o_bg;
+    int o_reset;
+    int o_halt;
     int o_ipl0;
     int o_ipl1;
     int o_ipl2;
@@ -31,10 +34,7 @@ typedef struct {
     int o_fc0;
     int o_fc1;
     int o_fc2;
-    int i_dtack;
     int o_rw;
-    int i_berr;
-    int i_data;
     int o_data;
     int o_data_z;
     int o_address;
@@ -42,6 +42,10 @@ typedef struct {
     int o_as;
     int o_lds;
     int o_uds;
+
+    busstate_t b1[4];
+    busstate_t b2[4];
+    busstate_t b3[4];
 
     int w1;
     int l1;
@@ -159,7 +163,6 @@ typedef struct {
     int w104;
     int w105;
     int w106;
-    busstate_t b1[4];
     int w107;
     int w108;
     int r1[18];
@@ -188,7 +191,6 @@ typedef struct {
     int w129;
     int w130;
     int w131;
-    busstate_t b2[4];
     int w132;
     int w133;
     int w134;
@@ -319,7 +321,6 @@ typedef struct {
     int w256;
     int w257;
     int r6[10];
-    busstate_t b3[4];
 
     int w258;
     int w259[2];
@@ -342,12 +343,13 @@ typedef struct {
     int w276[3];
     int w277[6];
     int w278;
-    int w279[2];
+    int _w279[4];
     int w280;
-    int w281[2];
+    int _w281[4];
     int w282;
+    int w282_n;
     int w283;
-    int w284[2];
+    int _w284[4];
     int w285;
     int w286;
     int w287;
@@ -1095,5 +1097,7 @@ typedef struct {
     int lds_l1;
     int lds_l2;
     int lds_l3;
+    int rw_l;
 } m68k_t;
 
+void M68K_Clock(m68k_t* chip, int clk1, int clk2);
